@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar - RescueGo</title>
+    <link rel="icon" href="/public/img/RescueGo-SideBarLogo.svg" />
+    <link rel="stylesheet" href="/public/css/output.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
+  </head>
+
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="flex flex-col bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-2xl lg:max-w-4xl">
+      <div class="p-8 text-white text-center">
+        <h1 class="text-3xl font-bold text-[#5B2EFF] mb-2">Buat Akun RescueGo</h1>
+        <p class="text-lg text-[#5B2EFF] opacity-90">Lengkapi data-data yang dibutuhkan untuk bergabung.</p>
+      </div>
+
+      <div class="p-8 md:p-12">
+        <h2 class="text-2xl font-bold text-[#5B2EFF] mb-6 text-center">Registrasi Akun Baru</h2>
+
+        <p id="errorMsg" class="hidden text-sm text-center text-red-500 bg-red-100 p-3 rounded-md mb-6"></p>
+
+        <form id="registerForm" class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="first-name" class="block text-lg font-semibold text-[#5B2EFF] mb-1">Nama Depan <span class="text-red-500">*</span></label>
+              <input type="text" id="first-name" name="first_name" placeholder="Masukkan Nama Depan" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#5B2EFF] text-gray-800" required />
+            </div>
+            <div>
+              <label for="last-name" class="block text-lg font-semibold text-[#5B2EFF] mb-1">Nama Belakang</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Masukkan Nama Belakang" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#5B2EFF] text-gray-800" />
+            </div>
+          </div>
+
+          <div>
+            <label for="username" class="block text-lg font-semibold text-[#5B2EFF] mb-1">Username <span class="text-red-500">*</span></label>
+            <input type="text" id="username" name="username" placeholder="Pilih Username Anda" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#5B2EFF] text-gray-800" required />
+          </div>
+
+          <div>
+            <label for="email" class="block text-lg font-semibold text-[#5B2EFF] mb-1">Email <span class="text-red-500">*</span></label>
+            <input type="email" id="email" name="email" placeholder="contoh@email.com" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#5B2EFF] text-gray-800" required />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="city" class="block text-lg font-semibold text-[#5B2EFF] mb-1">Kota <span class="text-red-500">*</span></label>
+              <input type="text" id="city" name="city" placeholder="Kota tempat tinggal" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#5B2EFF] text-gray-800" required />
+            </div>
+            <div>
+              <label for="phone-number" class="block text-lg font-semibold text-[#5B2EFF] mb-1">Nomor Telepon</label>
+              <input type="tel" id="phone-number" name="phone_number" placeholder="Contoh: 081234567890" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#5B2EFF] text-gray-800" />
+            </div>
+          </div>
+
+          <div>
+            <label for="password" class="block text-lg font-semibold text-[#5B2EFF] mb-1">Password <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <input type="password" id="password" name="password" placeholder="Minimal 6 karakter" class="w-full border border-gray-300 rounded-md p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-[#5B2EFF] text-gray-800" required />
+              <img
+                id="eyeIcon1"
+                src="/public/img/eye.svg"
+                alt="Toggle Password Visibility"
+                class="absolute inset-y-0 right-3 top-1/2 -translate-y-1/2 cursor-pointer w-5 h-5"
+                onclick="togglePassword('eyeIcon1', 'password', '/public/img/eye.svg', '/public/img/eye-off.svg');"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="confirm-password" class="block text-lg font-semibold text-[#5B2EFF] mb-1">Ulangi Password <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <input
+                type="password"
+                id="confirm-password"
+                name="password_confirm"
+                placeholder="Ketik ulang password"
+                class="w-full border border-gray-300 rounded-md p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-[#5B2EFF] text-gray-800"
+                required
+              />
+              <img
+                id="eyeIcon2"
+                src="/public/img/eye.svg"
+                alt="Toggle Password Visibility"
+                class="absolute inset-y-0 right-3 top-1/2 -translate-y-1/2 cursor-pointer w-5 h-5"
+                onclick="togglePassword('eyeIcon2', 'confirm-password', '/public/img/eye.svg', '/public/img/eye-off.svg');"
+              />
+            </div>
+          </div>
+
+          <button type="submit" id="registerButton" class="w-full h-14 bg-[#5B2EFF] hover:bg-[#4a25cc] text-white py-3 rounded-md text-lg font-semibold relative flex items-center justify-center transition-colors duration-200 ease-in-out">
+            <span id="buttonText">Daftar</span>
+            <div id="loadingSpinner" class="spinner hidden absolute"></div>
+          </button>
+        </form>
+
+        <div class="text-lg mt-6 text-center">
+          Sudah punya akun?
+          <a href="login_screen.html" class="text-[#5B2EFF] hover:underline font-medium">Masuk Sekarang</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="snackbar">
+      <div id="snackbarIcon"></div>
+      <div id="snackbarMessageContainer">
+        <div id="snackbarTitle"></div>
+        <div id="snackbarMessage"></div>
+      </div>
+      <button id="snackbarCloseBtn">&times;</button>
+    </div>
+
+    <script src="/public/js/utils.js"></script>
+    <script src="/public/js/apiHelper.js"></script>
+    <script src="/public/js/auth.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        handleRegisterFormSubmit("registerForm", "username", "first-name", "last-name", "email", "city", "phone-number", "password", "confirm-password", "errorMsg", "login_screen.html");
+      });
+    </script>
+  </body>
+</html>
