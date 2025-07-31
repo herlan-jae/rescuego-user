@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const profile = await apiFetch(`${API_BASE_URL}/accounts/api/profile/`, {}, LOGIN_REDIRECT_URL);
       if (welcomeMessage) {
-        welcomeMessage.textContent = `Halo, ${profile.user.first_name || profile.user.username}!`;
+        welcomeMessage.textContent = `Halo, ${profile.first_name || profile.full_name || profile.username}!`;
       }
     } catch (error) {
       console.error("Gagal memuat profil:", error);
