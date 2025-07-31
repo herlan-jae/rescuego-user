@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const API_PROFILE_URL = `${API_BASE_URL}/accounts/api/profile/`;
-  const LOGIN_REDIRECT_URL = "/src/user/views/login_screen.html";
+  const LOGIN_REDIRECT_URL = "index.html";
   const accessToken = localStorage.getItem("accessToken");
 
   if (!accessToken) {
